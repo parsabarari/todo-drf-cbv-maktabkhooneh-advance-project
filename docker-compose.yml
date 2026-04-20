@@ -1,0 +1,13 @@
+version: "4.6"
+
+services:
+  backend:
+    build: .
+    container_name: backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./core:/app
+    ports:
+    - "8000:8000"
+    # enviroment:
+    #   - name-value
