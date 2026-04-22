@@ -2,7 +2,6 @@ from django.views.generic import ListView, CreateView,UpdateView, DeleteView, Vi
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from todo.models import TaskModel
 from accounts.models import Profile
-from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
 
@@ -44,7 +43,7 @@ class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = TaskModel
     template_name = 'tasks/task_confirm_delete.html'
-    success_url = reverse_lazy('task_list')
+    success_url = '/tasks/'
     context_object_name = 'task'
 
     def test_func(self):
