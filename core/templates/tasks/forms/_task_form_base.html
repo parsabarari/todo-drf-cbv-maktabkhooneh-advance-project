@@ -1,0 +1,8 @@
+{% block form_content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{{ submit_text }}</button>
+    <a href="{% url 'task_list' %}" class="btn btn-secondary">بازگشت</a>
+</form>
+{% endblock %}

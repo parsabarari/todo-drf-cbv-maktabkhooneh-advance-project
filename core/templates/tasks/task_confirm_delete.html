@@ -1,0 +1,8 @@
+<h1>آیا مطمئن هستید که می‌خواهید تسک "{{ task.title }}" را حذف کنید؟</h1>
+<p>این عمل غیرقابل بازگشت است.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">بله، حذف کن</button>
+    <a href="{% url 'task_list' %}" class="btn btn-secondary">خیر، انصراف می‌دهم</a>
+</form>
