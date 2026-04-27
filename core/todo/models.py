@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class TaskModel(models.Model):
@@ -11,6 +12,12 @@ class TaskModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_snippet(self):
+        return self.description[0:5]
+    
+    def get_absolute_api_url(self):
+        return reverse("todo:api-v1:task-detail", kwargs={"pk": self.pk})
 
 
 class Priority(models.Model):
