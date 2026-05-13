@@ -22,7 +22,7 @@
                         <h2 class="m-0">Todo List</h2>
                     </div>
 
-                    <h3><a href="{% url 'task_create' %}">create task</a></h3>
+                    <h3><a href="{% url 'todo:task_create' %}">create task</a></h3>
 
                     <div class="card-body">
 
@@ -41,7 +41,7 @@
                                     ❌ incomplete
                                     {% endif %}
                                 </small>
-                                <form method="post" action="{% url 'task_complete' todo.pk %}">
+                                <form method="post" action="{% url 'todo:task_complete' todo.pk %}">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-sm btn-success">
                                         change to 
@@ -53,8 +53,8 @@
                                     </button>
                                 </form>
                                 <br>
-                                <a href="{% url 'task_update' todo.pk %}">update</a>
-                                <a href="{% url 'task_delete' todo.pk %}">delete</a>
+                                <a href="{% url 'todo:task_update' todo.pk %}">update</a>
+                                <a href="{% url 'todo:task_delete' todo.pk %}">delete</a>
                             </li>
                             {% endfor %}
                         </ul>

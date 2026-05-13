@@ -14,6 +14,11 @@ class TaskListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return TaskModel.objects.filter(author__user=self.request.user)
 
+class TaskListApiView(ListView):
+    model = TaskModel
+    template_name = 'tasks/task_list_api.html'
+
+
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = TaskModel
     fields = ['title', 'description', 'priority', 'completed']

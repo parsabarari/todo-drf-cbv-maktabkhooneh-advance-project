@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2></h2>
+    </div>
+    <div>
+        <h1>Articles</h1>
+        <!-- <h1>{{name}}</h1>
+        <ul>
+            {% for article in object_list %}
+            <h2>
+                <li>{{ article.published_date|date }} - {{ article.title }} - {{ article.author.first_name }}</li>
+            </h2>
+            {% empty %}
+            <li>No articles yet.</li>
+            {% endfor %}
+        </ul> -->
+        <ul id="post-wrapper">
+
+        </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $.get("todo/api/v1/task/", // url
+            function (data, textStatus, jqXHR) {
+                wrapper = $('#post-wrapper')
+                for (todo of data.results) {
+                    wrapper.append(`<li><a href="${todo.absolute_url}/"> <h2>${todo.title}</h2></a></li>`)
+                }
+                //alert('status: ' + textStatus + ', data:' + data);
+                // console.log(data);
+
+            });
+    </script>
+
+</body>
+
+</html>
