@@ -150,3 +150,8 @@ TEMPLATED_EMAIL_DEFAULT_FROM_EMAIL = 'no-reply@example.com'
 AUTH_USER_MODEL = 'accounts.User'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+
+# celery configs
+CELERY_BROKER_URL = 'redis://redis:6379/1'
